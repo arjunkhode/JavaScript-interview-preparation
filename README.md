@@ -65,12 +65,12 @@ My preparation for getting a full time job as a front end developer
 
 * Coercion
 
-Type coercion means that when the operands of an operator are different types, one of them will be converted to an "equivalent" value of the other operand's type. For instance, if you do:
+  Type coercion means that when the operands of an operator are different types, one of them will be converted to an "equivalent" value of the other operand's type. For instance, if you do:
 
-```
-boolean == integer
-```
-the boolean operand will be converted to an integer: false becomes 0, true becomes 1. Then the two values are compared.
+  ```
+  boolean == integer
+  ```
+  the boolean operand will be converted to an integer: false becomes 0, true becomes 1. Then the two values are compared.
 
-However, if you use the non-converting comparison operator ===, no such conversion occurs. When the operands are of different types, this operator returns false, and only compares the values when they're of the same type.
-[source](http://stackoverflow.com/questions/19915688/what-exactly-is-type-coercion-in-javascript)
+  However, if you use the non-converting comparison operator ===, no such conversion occurs. When the operands are of different types, this operator returns false, and only compares the values when they're of the same type.
+  [source](http://stackoverflow.com/questions/19915688/what-exactly-is-type-coercion-in-javascript)
