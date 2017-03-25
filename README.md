@@ -45,3 +45,16 @@ My preparation for getting a full time job as a front end developer
   ```
   [source](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/toString)
 
+* `var a = b = 3;` is equivalent to 
+  ```
+  b = 3;
+  var a = b;
+  ```
+  If the statement was enclosed within a function
+  ```
+  function funk(){var a = b = 3;}
+  console.log(b);// We get 3
+  console.log(a);//we get undefined
+  ``` b would be accessible and defined outside the function, but a would not be defined in the global scope because it has a var prefix in the declaration
+  
+  If the statement had const instead of var, neither of the variables would print outside the block's scope
