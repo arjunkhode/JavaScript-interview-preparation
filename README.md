@@ -62,3 +62,15 @@ My preparation for getting a full time job as a front end developer
   b would be accessible and defined outside the function, but a would not be defined in the global scope because it has a var prefix in the declaration
   
   If the statement had const instead of var, neither of the variables would print outside the block's scope
+
+* Coercion
+
+Type coercion means that when the operands of an operator are different types, one of them will be converted to an "equivalent" value of the other operand's type. For instance, if you do:
+
+```
+boolean == integer
+```
+the boolean operand will be converted to an integer: false becomes 0, true becomes 1. Then the two values are compared.
+
+However, if you use the non-converting comparison operator ===, no such conversion occurs. When the operands are of different types, this operator returns false, and only compares the values when they're of the same type.
+[source](http://stackoverflow.com/questions/19915688/what-exactly-is-type-coercion-in-javascript)
