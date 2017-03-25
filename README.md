@@ -1,7 +1,7 @@
 # JavaScript-interview-preparation
 My preparation for getting a full time job as a front end developer
 
-1. The null gotcha!
+* The null gotcha!
 
   null datatype qualifies as an Object.
   ```
@@ -26,10 +26,9 @@ My preparation for getting a full time job as a front end developer
   (toString.call(bar) !== "[object Array]"))
   ```
  
-1. Since toString is defined in Object.prototype, whoever inherits Object, will by default get the toString method.
+* Since toString is defined in Object.prototype, whoever inherits Object, will by default get the toString method.
 
   But, Array objects, override the default toString method to print the array elements as comma separated string.
-
   [source](http://stackoverflow.com/questions/30010996/difference-between-object-prototype-tostring-callarrayobj-and-arrayobj-tostrin)
   
   toString() can be used with every object and allows you to get its class using the `call` function.
@@ -44,6 +43,5 @@ My preparation for getting a full time job as a front end developer
   toString.call(undefined);   // [object Undefined]
   toString.call(null);        // [object Null]
   ```
-  
   [source](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/toString)
 
