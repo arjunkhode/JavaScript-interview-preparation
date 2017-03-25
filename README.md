@@ -74,3 +74,11 @@ My preparation for getting a full time job as a front end developer
 
   However, if you use the non-converting comparison operator ===, no such conversion occurs. When the operands are of different types, this operator returns false, and only compares the values when they're of the same type.
   [source](http://stackoverflow.com/questions/19915688/what-exactly-is-type-coercion-in-javascript)
+  
+  Another example:
+  
+  ```
+  [] + 5
+  ```
+  In JavaScript, + can mean add two numbers or concatenate two strings. In this case, we have neither two numbers nor two strings. We only have one number and an object. 
+  Javascript knows how to concatenate strings, so it converts both [] and 5 into strings and the result is string value “5”.
