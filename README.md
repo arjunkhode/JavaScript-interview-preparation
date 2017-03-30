@@ -101,3 +101,5 @@ My preparation for getting a full time job as a front end developer
   
   This function returns `undefined` for 'this.animal' and returns `Window` object for 'this'.
   Because animal is not present in the global scope and is limited to the object, it gets a value of undefined.
+  
+ * [A good read about 'this'](https://github.com/getify/You-Dont-Know-JS/tree/master/this%20%26%20object%20prototypes)
