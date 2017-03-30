@@ -82,3 +82,6 @@ My preparation for getting a full time job as a front end developer
   ```
   In JavaScript, + can mean add two numbers or concatenate two strings. In this case, we have neither two numbers nor two strings. We only have one number and an object. 
   Javascript knows how to concatenate strings, so it converts both [] and 5 into strings and the result is string value “5”.
+  
+* IIFEs are executed before other functions and have their own lexical scope which helps prevent the variables from leaking.
+* IIFEs may get expressed in an expression before variables trickle down to their scope.
