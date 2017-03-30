@@ -97,5 +97,7 @@ My preparation for getting a full time job as a front end developer
   };
   myObject.func();
   ```
+  `this` inside of a `function` will always equal the global object (`window`) unless you change the context of `this` via `.bind()`, `.call()` or `.apply()`.
+  
   This function returns `undefined` for 'this.animal' and returns `Window` object for 'this'.
-  This is because the inner function is an IIFE and gets parsed before func. Thus, it acquires 'this' from Window, i.e, the global scope. Because animal is not present in the global scope and is limited to the object, it gets a value of undefined.
+  Because animal is not present in the global scope and is limited to the object, it gets a value of undefined.
