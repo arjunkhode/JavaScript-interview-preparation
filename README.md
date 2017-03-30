@@ -85,3 +85,17 @@ My preparation for getting a full time job as a front end developer
   
 * IIFEs are executed before other functions and have their own lexical scope which helps prevent the variables from leaking.
 * IIFEs may get expressed in an expression before variables trickle down to their scope.
+
+```
+var myObject = {
+    animal: "bear",
+    func: function() {
+        (function() {
+            console.log(this.animal, this);
+        }());
+    }
+};
+myObject.func();
+```
+This function returns `undefined` for 'this.animal' and returns `Window` object for 'this'.
+This is because the inner function is an IIFE and gets parsed before func. Thus, it acquires 'this' from Window, i.e, the global scope. Because animal is not present in the global scope and is limited to the object, it gets a value of undefined.
