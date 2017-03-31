@@ -347,6 +347,9 @@ These retained variables are available to functions that are authorized to acces
 
 - Thus, all 3 functions print 3, which was the final value of i.
 
+- If you wanted to print 1,2,3, use let i. let datatype segments the memory.
+It stores each new value of i in the for loop in a different memory location.
+
 This is very similar to getting closure after watching Star Wars series.
 The episodes you are yet to watch, are functions authorized to access the part of your neural network.
 As the story progresses, the information in your brain is updated.
