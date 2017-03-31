@@ -223,7 +223,7 @@ The this binding is only affected by the most immediate member reference. The mo
 	Now we are in the global execution context, where myVar is 1.
 	So it prints 1 again.
 
-* How are events handled by JS? / How are asynchronous calls handled by JS
+### How are events handled by JS? / How are asynchronous calls handled by JS
 
 - The global execution context is set up.
 
