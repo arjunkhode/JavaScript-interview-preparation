@@ -260,3 +260,14 @@ The this binding is only affected by the most immediate member reference. The mo
 - The function runs and similarly, any subsequent functions are run till the execution stack is empty
 
 - The next event in the queue is taken in, and the process continues
+
+### Precedence and assiciativity
+
+	```
+	var a = 1, b = 3, c = 4;
+	a = b = c;
+	console.log(a,b,c);
+	```
+	
+	Prints 4,4,4.
+	Because of associativity. '=' operator is right to left
