@@ -169,7 +169,7 @@ The this binding is only affected by the most immediate member reference. The mo
 
 # Execution stack, variable environment & outer variable environment
 
-* In an execution stack, an execution context for each function is created in the order in which they appear in the flow. However, when it comes to variable environments, each execution context maintains a link to the immediate outer environment. This is the lexical environment. This outer environment is used when a variable inside our current execution context is not defined. So it is fetched from the lexically outer environment. 
+* In an execution stack, an execution context for each function is created in the order in which they appear in the flow. However, when it comes to variable environments, each execution context maintains a link to the immediate outer (lexical) environment, where the function was written. This is the outer lexical environment, the environment in which the current function has been physically written. This outer environment is used when a variable inside our current execution context is not defined. So it is fetched from the lexically outer environment. If it doesn't find it there and there is an ever outer lexical environment, it checks for the variable there. This jumping of a variable value when it is not defined, from one environment to another, is called the **scope chain**. 
 
 * Every execution context has its own variable environment. Every variable in JavaScript belongs to some variable environment. Global environment if it is not inside any execution context of functions. Where it is referenced from has an impact on its value. 
 
