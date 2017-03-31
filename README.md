@@ -167,7 +167,7 @@ When a function is called as a method of an object, its this is set to the objec
 
 The this binding is only affected by the most immediate member reference. The most immediate reference is all that matters.
 
-# Execution stack and variable environment
+# Execution stack, variable environment & outer variable environment
 
 * In an execution stack, an execution context for each function is created in the order in which they appear in the flow. However, when it comes to variable environments, each execution context maintains a link to the immediate outer environment. This is the lexical environment. This outer environment is used when a variable inside our current execution context is not defined. So it is fetched from the lexically outer environment. 
 
