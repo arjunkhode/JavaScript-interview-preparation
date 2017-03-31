@@ -122,11 +122,13 @@ When a function is invoked, an activation record, otherwise known as an executio
 	const callerObject = {const word: “Goodbye”};
 
 	printWord(); //Returns Hello
-  ```
+  
+
 The scope of this in printWord is Window, so it accesses window.word which is “hello”
 
 
-2. Using `apply()` we can explicitly set the `this` of func function to the object passed as a parameter.
+2. Using `apply()` we can explicitly set the `this` of func function to the object 
+	passed as a parameter.
   
   ```
 	func.apply(callerObject);// `this` becomes callerObject
@@ -139,18 +141,18 @@ The scope of this in printWord is Window, so it accesses window.word which is �
 	function func(){console.log(this)}
 	callerObject.printWord = func;
 	printWord(); // Returns callerObject as `this` 
-	```
+	
 .apply() has greater precedence over dot notation
 	
-  ```
+  
 	callerObject.printWord.apply(func);//'this' becomes func
-	```
+	
 	If you reference (copy) a function to a variable and run the variable, `this` inherits the scope from the variable and not the originally referred function
-	```
+	
 	func2 = callerObject.printWord;
 	func2(); //returns “Hello” which is taken from the global scope and not from callerObject
 
-	```
+	
 4. `new` keyword.
   ```
 function func3(){this.word = “Hi”;} //when func3 is instantiated, it also returns `this`. It returns the newly created object
@@ -164,3 +166,4 @@ A function used as getter or setter has its this bound to the object from which 
 When a function is called as a method of an object, its this is set to the object the method is called on.
 
 The this binding is only affected by the most immediate member reference. The most immediate reference is all that matters.
+
