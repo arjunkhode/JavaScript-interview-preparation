@@ -325,7 +325,7 @@ These retained variables are available to functions that are authorized to acces
 
 - Then arr is returned, gets saved in f.
 
-- By the time the function finishes executing, the value of i is 3.
+- As build finishes executing, the value of i increments to 3, and all function definitions have been returned.
 
 - build() is cleared from the execution stack.
 
@@ -337,7 +337,7 @@ These retained variables are available to functions that are authorized to acces
 	f[2]();
 	```
 	
-- Each of these functions called need to access the value of i.
+- Each of these functions called needs to access the value of i.
 
 - But execution stack of build has finished executing and is no longer there.
 
