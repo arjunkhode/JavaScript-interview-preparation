@@ -103,3 +103,63 @@ My preparation for getting a full time job as a front end developer
   Because animal is not present in the global scope and is limited to the object, it gets a value of undefined.
   
  * [A good read about 'this'](https://github.com/getify/You-Dont-Know-JS/tree/master/this%20%26%20object%20prototypes)
+
+# All about `this`
+
+`this` does not, in any way, refer to a function's lexical scope.
+
+You cannot use a `this` reference to look something up in a lexical scope. It is not possible.
+
+When a function is invoked, an activation record, otherwise known as an execution context, is created. This record contains information about where the function was called from (the call-stack), how the function was invoked, what parameters were passed, etc. One of the properties of this record is the `this` reference which will be used for the duration of that function's execution.
+
+1. `this` inside a normal function always refers to Window
+	```
+	function func(){console.log(this)} // We get window
+
+	function printWord(){return this.word}
+	
+	const word = “Hello”; //Global word
+	const callerObject = {const word: “Goodbye”};
+
+	printWord(); //Returns Hello
+  ```
+The scope of this in printWord is Window, so it accesses window.word which is “hello”
+
+
+2. Using `apply()` we can explicitly set the `this` of func function to the object passed as a parameter.
+	```
+	func.apply(callerObject);// `this` becomes callerObject
+
+	printWord.apply(callerObject); //returns “Goodbye”
+  ```
+
+3. When you use dot notation, `this` is what actually comes before the dot.
+	```
+	function func(){console.log(this)}
+	callerObject.printWord = func;
+	printWord(); // Returns callerObject as `this` 
+	```
+.apply() has greater precedence over dot notation
+	
+  ```
+	callerObject.printWord.apply(func);//'this' becomes func
+	```
+	If you reference (copy) a function to a variable and run the variable, `this` inherits the scope from the variable and not the originally referred function
+	```
+	func2 = callerObject.printWord;
+	func2(); //returns “Hello” which is taken from the global scope and not from callerObject
+
+	```
+4. `new` keyword.
+  ```
+function func3(){this.word = “Hi”;} //when func3 is instantiated, it also returns `this`. It returns the newly created object
+const obj2 = new func3(); 
+obj2 //returns object with {word: “Hi”}
+  ```
+When a function is used as a constructor (with the new keyword), its this is bound to the new object being constructed.
+
+A function used as getter or setter has its this bound to the object from which the property is being set or gotten.
+
+When a function is called as a method of an object, its this is set to the object the method is called on.
+
+The this binding is only affected by the most immediate member reference. The most immediate reference is all that matters.
