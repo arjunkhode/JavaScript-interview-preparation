@@ -167,3 +167,58 @@ When a function is called as a method of an object, its this is set to the objec
 
 The this binding is only affected by the most immediate member reference. The most immediate reference is all that matters.
 
+# Execution stack and variable environment
+
+* In an execution stack, an execution context for each function is created in the order in which they appear in the flow. However, when it comes to variable environments, each execution context maintains a link to the immediate outer environment. This is the lexical environment. This outer environment is used when a variable inside our current execution context is not defined. So it is fetched from the lexically outer environment. 
+
+* Every execution context has its own variable environment. Every variable in JavaScript belongs to some variable environment. Global environment if it is not inside any execution context of functions. Where it is referenced from has an impact on its value. 
+
+	```
+	function b(){
+	console.log(myVar);
+	}
+	function a(){
+	var myVar = 2;
+	console.log(myVar); 
+	}
+	var myVar = 1;
+	console.log(myVar);
+	a();
+	```
+	
+	Here, myVar is globally set to 1. So it prints 1.
+	Then it dives into a()
+	a has myVar = 2, so it prints 2.
+	Then it dives into b()
+	b doesn't have a myVar, so it refers immediate outer lexical environment
+	There is nothing containing b(), so it refers to the global environment.
+	Finally, it prints the global value of myVar, which is 1.
+
+* Another example:
+
+	```
+	function b(){
+	var myVar;
+	console.log(myVar);
+	}
+	function a(){
+	var myVar = 2;
+	console.log(myVar); 
+	}
+	var myVar = 1;
+	console.log(myVar);
+	a();
+	console.log(myVar);
+	```
+	First, it opens the global execution context and sets a variable environment for myVar
+	myVar is set to 1.
+	It prints 1.
+	Then a() is called and its execution context is set, and a variable environment for myVar is created.
+	myVar is set to 2.
+	It prints 2.
+	Then b() is called, its execution context is set up and a variable environment for myVar is created in b()
+	myVar is set to undefined.
+	It prints undefined.
+	b() ends, so its execution context is popped. a() ends, its execution context is popped.
+	Now we are in the global execution context, where myVar is 1.
+	So it prints 1 again.
