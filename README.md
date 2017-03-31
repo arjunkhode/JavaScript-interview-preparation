@@ -298,3 +298,30 @@ Because of associativity. '=' operator is right to left
 	//returns
 	//{ford: "Ford GT", nissan: "GTR", hennessey: "Venom GT"}
 	```
+	
+## Closures
+
+JS preserves the variable environment of an execution context even after that context has finished executing and is popped off the stack.
+
+These retained variables are available to functions that are authorized to access them.
+
+	function build(){
+	var arr = [];
+	for(var i=0; i<3; i++){
+	arr.push(function(){console.log(i)});
+	}
+	return arr;
+	}
+
+	var f = build();
+
+	f[0]();
+	f[1]();
+	f[2]();
+
+This function pushes the definition of 3 functions into array arr. 
+
+Then arr is returned, gets saved in f.
+build() is cleared from the execution stack.
+
+But the variables inside build() are retained, and accessed by f.
