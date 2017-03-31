@@ -350,6 +350,9 @@ These retained variables are available to functions that are authorized to acces
 - If you wanted to print 1,2,3, use let i. let datatype segments the memory.
 It stores each new value of i in the for loop in a different memory location.
 
+- IIFE is another way to have 1,2,3 printed. Just enclose the return function statement inside an IIFE
+Pass the counter to the IIFE and refer to that variable inside the actual function definition to be returned.
+
 This is very similar to getting closure after watching Star Wars series.
 The episodes you are yet to watch, are functions authorized to access the part of your neural network.
 As the story progresses, the information in your brain is updated.
