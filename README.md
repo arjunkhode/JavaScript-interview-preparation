@@ -222,3 +222,41 @@ The this binding is only affected by the most immediate member reference. The mo
 	b() ends, so its execution context is popped. a() ends, its execution context is popped.
 	Now we are in the global execution context, where myVar is 1.
 	So it prints 1 again.
+
+* How are events handled by JS? / How are asynchronous calls handled by JS
+
+- The global execution context is set up.
+
+- 'this' is created
+
+- Variable environment for the global execution context is set up
+
+- Any function call that appears first from top to bottom sets up its own execution context in the execution stack
+
+- Its variable environment is set up
+
+- The function 'a' is run from top to bottom
+
+- Any other function that is called back by 'a' sets up its own execution context
+
+- Variable environment is created and the function is run from top to bottom
+
+- The function gives back control to 'a'
+
+- When a finishes, it gives back control to the global execution context
+
+- The global execution context finishes up all its statements
+
+- Any event encountered by an eventListener in the code is sent out to the event queue
+
+**Events**
+
+- After the execution stack is empty, the engine starts processing events one by one from the event queue
+
+- An event is read and any function call made by the event is taken in
+
+- The function sets up its execution context in the stack, its variable environment is set up
+
+- The function runs and similarly, any subsequent functions are run till the execution stack is empty
+
+- The next event in the queue is taken in, and the process continues
