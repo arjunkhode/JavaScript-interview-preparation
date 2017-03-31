@@ -127,7 +127,8 @@ The scope of this in printWord is Window, so it accesses window.word which is �
 
 
 2. Using `apply()` we can explicitly set the `this` of func function to the object passed as a parameter.
-	```
+  
+  ```
 	func.apply(callerObject);// `this` becomes callerObject
 
 	printWord.apply(callerObject); //returns “Goodbye”
