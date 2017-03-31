@@ -99,6 +99,8 @@ My preparation for getting a full time job as a front end developer
   ```
   `this` inside of a `function` will always equal the global object (`window`) unless you change the context of `this` via `.bind()`, `.call()` or `.apply()`.
   
+  `this` of a function inside a function always refers to the global object, even if the outer function is contained by an object.
+  
   This function returns `undefined` for 'this.animal' and returns `Window` object for 'this'.
   Because animal is not present in the global scope and is limited to the object, it gets a value of undefined.
   
