@@ -263,10 +263,9 @@ The this binding is only affected by the most immediate member reference. The mo
 
 ### Precedence and assiciativity
 
-	```
 	var a = 1, b = 3, c = 4;
 	a = b = c;
 	console.log(a,b,c);
 	
-	Prints 4,4,4.
-	Because of associativity. '=' operator is right to left
+Prints 4,4,4.
+Because of associativity. '=' operator is right to left
