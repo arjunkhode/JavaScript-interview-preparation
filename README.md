@@ -270,4 +270,4 @@ The this binding is only affected by the most immediate member reference. The mo
 Prints 4,4,4.
 Because of associativity. '=' operator is right to left
 
-- 3 < 2 < 4 returns true, because the '<' operator is left to right associative. It returns false and then true, leaving us with a 'true' result
+- 3 < 2 < 4 returns true, because the '<' operator is left to right associative. It returns false (3 < 2) and then true (false < 4), leaving us with a 'true' result. Note that false is coerced to a value 0 which is less than 4 and hence yields true.
