@@ -319,9 +319,40 @@ These retained variables are available to functions that are authorized to acces
 	f[1]();
 	f[2]();
 
-This function pushes the definition of 3 functions into array arr. 
+- build function pushes the definition of 3 functions into array arr. 
 
-Then arr is returned, gets saved in f.
-build() is cleared from the execution stack.
+- Note that it does not console.log the value of i. i is just a literal string passed as function definition.
 
-But the variables inside build() are retained, and accessed by f.
+- Then arr is returned, gets saved in f.
+
+- By the time the function finishes executing, the value of i is 3.
+
+- build() is cleared from the execution stack.
+
+- f has all the 3 functions.
+
+	```
+	f[0]();
+	f[1]();
+	f[2]();
+	```
+	
+- Each of these functions called need to access the value of i.
+
+- But execution stack of build has finished executing and is no longer there.
+
+- Yet, the final value of i is retained in the global scope. 
+
+- The variable environment of build is preserved due to closure.
+
+- Thus, all 3 functions print 3, which was the final value of i.
+
+This is very similar to getting closure after watching Star Wars series.
+The episodes you are yet to watch, are functions authorized to access the part of your neural network.
+As the story progresses, the information in your brain is updated.
+When you finish watching episode 3, you get closure. 
+You are no longer desperate or curious.
+The first series is gone, has finished, and yet you retain the information, the latest version of it.
+And this information flows through the next trilogy even after the first one is over.
+The first trilogy is gone, yet the second one can access it. 
+Because the information is retained in your brain.
