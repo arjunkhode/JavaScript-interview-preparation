@@ -164,7 +164,11 @@ When objects cascade, `this` of the contained function propagates from inside to
 		}
 	}
 
-	obj.func.b();// returns {b: function} which is not the same as obj.func, it is an object
+	obj.func.b();// returns {b: function} but if you try to access any variables in b, 
+	// it would check b and if not found, then check the global execution context
+	//Any function created in normal fashion, has its 'this' set to global execution context
+	//So 'this' inside b couldn't access anything that was a sibling of b
+	//because 'this' inside b has its outer environment set to global context and not the object containing b
 
 4. `new` keyword.
   ```
