@@ -294,6 +294,23 @@ No! Because everytime we use `=` it is an exception to call by reference. Instea
 
 - The next event in the queue is taken in, and the process continues
 
+## The IIFE lifecycle, a friend of frameworks
+
+- Global execution context is first created.
+- Then it comes across an IIFE outer parenthesis.
+- It applies the grouping operator and sees that function as an expression.
+- It almost loads the function in the variable environment of the global execution context.
+- But, when it comes across the second pair of parentheses, it recognizes it as a function and creates a new execution context.
+- Any variable created inside the IIFE is stored in the IIFE’s variable environment, not the global scope.
+- The global version of variables is not taken. The local IIFE variables are used in an IIFE.
+- This avoids major conflicts, and hence IIFEs are used in major frameworks. 
+- It keeps the code safe.
+- So in a framework, you will usually see all code begin with an opening parenthesis and closing with a closing parenthesis.
+- It does not touch the global object.
+- The global object is safe.
+- Unless, we explicitly pass the global object aka Window as a parameter to an IIFE and access that `global.variable` inside the IIFE. That is the only way an IIFE can touch the global context.
+- An IIFE neither uses global variables nor pushes variables to the global object, by default.
+
 ### Precedence and assiciativity
 
 	var a = 1, b = 3, c = 4;
