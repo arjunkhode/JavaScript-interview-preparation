@@ -411,3 +411,34 @@ The first series is gone, has finished, and yet you retain the information, the 
 And this information flows through the next trilogy even after the first one is over.
 The first trilogy is gone, yet the second one can access it. 
 Because the information is retained in your brain.
+
+## Call, apply and bind
+
+Everh function has:
+- name property
+- code property which is invokable
+- and
+
+- call
+- apply
+- bind
+
+All 3 have to do with `this` variable
+
+**bind** creates a `copy of the function` and sets `this` of the function to the first parameter passed.
+
+**call** calls the function while altering its `this`
+ 
+- call executes the function and bind creates a copy
+
+**apply** requires an array of arguments passed to it. It works just like call but needs an array of arguments.
+
+### Function borrowing (call, apply)
+Invoke the original function present in first object and _apply()_ a second object to it to display the second person’s name. It tricks the `this` inside the original function into thinking that it belongs to the second object.
+
+### Function currying (bind)
+- Creating a copy of a function with some preset parameters.
+
+Passing a second parameter (say 2) to bind sets the first argument of the original function to a permanent value of 2
+However, when you call the new function, the first parameter will always be 2.
+Any argument passed to the new function will apply to the second parameter(and not the first because it is preset), and so on.
