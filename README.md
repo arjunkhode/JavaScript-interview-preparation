@@ -193,7 +193,7 @@ The this binding is only affected by the most immediate member reference. The mo
 	Then it dives into a()
 	a has myVar = 2, so it prints 2.
 	Then it dives into b()
-	b doesn't have a myVar, so it refers immediate outer lexical environment
+	b doesn't have a myVar, so it refers immediate outer lexical environment.
 	There is nothing containing b(), so it refers to the global environment.
 	Finally, it prints the global value of myVar, which is 1.
 
