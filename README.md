@@ -164,7 +164,7 @@ When objects cascade, `this` of the contained function propagates from inside to
 		}
 	}
 
-	obj.func.b();// returns func object
+	obj.func.b();// returns {b: function} which is not the same as obj.func, it is an object
 
 4. `new` keyword.
   ```
