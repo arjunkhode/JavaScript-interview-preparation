@@ -166,10 +166,26 @@ When objects cascade, `this` of the contained function propagates from inside to
 
 	obj.func.b();// returns {b: function}
 if you try to access any variables in b, 
-it would check b and if not found, then check the global execution context
-Any function created in normal fashion, has its 'this' set to global execution context
-So 'this' inside b couldn't access anything that was a sibling of b
-because 'this' inside b has its outer environment set to global context and not the object containing b
+it would check b and if not found, then check the global execution context.
+Any function created in normal fashion, has its 'this' set to global execution context.
+So 'this' inside b couldn't access anything that was a sibling of b inside obj
+because 'this' inside b has its outer environment set to global context and not the obj, containing b.
+
+4. `new` keyword.
+  ```
+function func3(){this.word = “Hi”;} //when func3 is instantiated, it also returns `this`. It returns the newly created object
+const obj2 = new func3(); 
+obj2 //returns object with {word: “Hi”}
+  ```
+When a function is used as a constructor (with the new keyword), its this is bound to the new object being constructed.
+
+A function used as getter or setter has its this bound to the object from which the property is being set or gotten.
+
+When a function is called as a method of an object, its this is set to the object the method is called on.
+
+The this binding is only affected by the most immediate member reference. The most immediate reference is all that matters.
+
+## Scoping: functions inside objects and functions inside functions
 
 	> var tex = 1
 	< undefined
@@ -192,23 +208,10 @@ Note that where a function was called does not have an impact on the function's 
 Where it lexically sits has an effect on its outer environment.
 And functions in objects point to global scope because objects do not have execution environments.
 
-4. `new` keyword.
-  ```
-function func3(){this.word = “Hi”;} //when func3 is instantiated, it also returns `this`. It returns the newly created object
-const obj2 = new func3(); 
-obj2 //returns object with {word: “Hi”}
-  ```
-When a function is used as a constructor (with the new keyword), its this is bound to the new object being constructed.
+## A tricky scenario: call by reference
 
-A function used as getter or setter has its this bound to the object from which the property is being set or gotten.
-
-When a function is called as a method of an object, its this is set to the object the method is called on.
-
-The this binding is only affected by the most immediate member reference. The most immediate reference is all that matters.
-
-## A tricky scenario
-
-	> var thing = obj.func.b
+	b = function (){console.log(this)}
+	> var thing = b
 	< undefined
 	> thing
 	< function (){console.log(this)}
@@ -221,9 +224,9 @@ The this binding is only affected by the most immediate member reference. The mo
 	> newStuff.thing
 	< "Hello World"
 	
-Suppose we want to test out call by reference feature of objects. We have `b` inside `func` inside `obj`. We assign this object `b` to a variable `thing`. We create a new object newStuff and try to assign "Hello world" to thing. Does this modify thing and hence the original `b` object? 
+Suppose we want to test out call by reference feature of objects. We have `b` inside `func` inside `obj`. We assign object `b` to a variable `thing`. We create a new object newStuff and try to assign "Hello world" to thing. Does this modify thing and hence the original `b` object? 
 
-No! Because everytime we use `=` it is an exception to call by reference. Instead of modifying the original copy, it creates a new memory space for the value on left hand side and puts the new assigned value in it. So, thing remains as it is. Whereas newStuff.thing is an entirely new variable inside the scope of newStuff and contains a value of "Hello World".
+No! Because everytime we use `=` it is an exception to call by reference. Instead of modifying the original copy, it creates a new memory space for the value on left hand side and puts the new assigned value in it. So, thing remains as it is. Whereas `newStuff.thing` is an entirely new variable inside the scope of newStuff and contains a value of "Hello World".
 
 # Execution stack, variable environment & outer variable environment
 
