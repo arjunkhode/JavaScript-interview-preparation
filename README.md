@@ -180,6 +180,25 @@ When a function is called as a method of an object, its this is set to the objec
 
 The this binding is only affected by the most immediate member reference. The most immediate reference is all that matters.
 
+## A tricky scenario
+
+	> var thing = obj.func.b
+	< undefined
+	> thing
+	< function (){console.log(this)}
+	> var newStuff = {thing: "Hello World"}
+	< undefined
+	> thing
+	< function (){console.log(this)}
+	> newStuff
+	< {thing: "Hello World"}
+	> newStuff.thing
+	< "Hello World"
+	
+Suppose we want to test out call by reference feature of objects. We have `b` inside `func` inside `obj`. We assign this object `b` to a variable `thing`. We create a new object newStuff and try to assign "Hello world" to thing. Does this modify thing and hence the original `b` object? 
+
+No! Because everytime we use `=` it is an exception to call by reference. Instead of modifying the original copy, it creates a new memory space for the value on left hand side and puts the new assigned value in it. So, thing remains as it is. Whereas newStuff.thing is an entirely new variable inside the scope of newStuff and contains a value of "Hello World".
+
 # Execution stack, variable environment & outer variable environment
 
 * In an execution stack, an execution context for each function is created in the order in which they appear in the flow. However, when it comes to variable environments, each execution context maintains a link to the immediate outer (lexical) environment, where the function was written. This is the outer lexical environment, the environment in which the current function has been physically written. This outer environment is used when a variable inside our current execution context is not defined. So it is fetched from the lexically outer environment. If it doesn't find it there and there is an ever outer lexical environment, it checks for the variable there. This jumping of a variable value when it is not defined, from one environment to another, is called the **scope chain**. 
