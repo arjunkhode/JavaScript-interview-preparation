@@ -149,13 +149,22 @@ The scope of this in printWord is Window, so it accesses window.word which is �
   
 	callerObject.printWord.apply(func);//'this' becomes func
 	
-	If you reference (copy) a function to a variable and run the variable, `this` inherits the scope from the variable and not the originally referred function
+If you reference (copy) a function to a variable and run the variable, `this` inherits the scope from the variable and not the originally referred function
 	
 	func2 = callerObject.printWord;
 	func2(); //returns “Hello” which is taken from the global scope and not from callerObject
 
 If we have two nested objects and a function inside the inner object, `this` of that function returns the inner object. 
-And 'this' of the inner object returns the outer object. When objects cascade, this propagates from inside to outside one step at a time.
+When objects cascade, `this` of the contained function propagates from inside to outside one step at a time.
+
+	var obj = {func: {
+		b: function(){
+			console.log(this)
+			}
+		}
+	}
+
+	obj.func.b();// returns func object
 
 4. `new` keyword.
   ```
