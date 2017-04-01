@@ -182,6 +182,7 @@ The this binding is only affected by the most immediate member reference. The mo
 	function a(){
 	var myVar = 2;
 	console.log(myVar); 
+	b();
 	}
 	var myVar = 1;
 	console.log(myVar);
