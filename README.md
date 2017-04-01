@@ -164,11 +164,33 @@ When objects cascade, `this` of the contained function propagates from inside to
 		}
 	}
 
-	obj.func.b();// returns {b: function} but if you try to access any variables in b, 
-	// it would check b and if not found, then check the global execution context
-	//Any function created in normal fashion, has its 'this' set to global execution context
-	//So 'this' inside b couldn't access anything that was a sibling of b
-	//because 'this' inside b has its outer environment set to global context and not the object containing b
+	obj.func.b();// returns {b: function}
+if you try to access any variables in b, 
+it would check b and if not found, then check the global execution context
+Any function created in normal fashion, has its 'this' set to global execution context
+So 'this' inside b couldn't access anything that was a sibling of b
+because 'this' inside b has its outer environment set to global context and not the object containing b
+
+	> var tex = 1
+	< undefined
+	> var mex = {tex:2; func:function(){console.log(tex)}};
+	< SyntaxError: Unexpected token ';'. Expected '}' to end an object literal.
+	> var mex = {tex:2, func:function(){console.log(tex)}};
+	< undefined
+	> func
+	< ReferenceError: Can't find variable: func
+	> mex.func
+	< function (){console.log(tex)}
+	> mex.func()
+	[Log] 1
+	
+Any function contained in an object, would have its outer environment set to global scope and not the object scope.
+Any function contained within a function, has its outer environment value depend upon where the inner function lexically sits. If inside the outer function, the outer environment would point to the scope of the outer function.
+If not, it would point to the global environment. 
+
+Note that where a function was called does not have an impact on the function's outer environment.
+Where it lexically sits has an effect on its outer environment.
+And functions in objects point to global scope because objects do not have execution environments.
 
 4. `new` keyword.
   ```
