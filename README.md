@@ -443,7 +443,7 @@ Because the information is retained in your brain.
 
 ## Call, apply and bind
 
-Everh function has:
+Every function has:
 - name property
 - code property which is invokable
 - and
