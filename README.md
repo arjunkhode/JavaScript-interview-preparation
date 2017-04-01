@@ -154,7 +154,9 @@ The scope of this in printWord is Window, so it accesses window.word which is �
 	func2 = callerObject.printWord;
 	func2(); //returns “Hello” which is taken from the global scope and not from callerObject
 
-	
+If we have two nested objects and a function inside the inner object, `this` of that function returns the inner object. 
+And 'this' of the inner object returns the outer object. When objects cascade, this propagates from inside to outside one step at a time.
+
 4. `new` keyword.
   ```
 function func3(){this.word = “Hi”;} //when func3 is instantiated, it also returns `this`. It returns the newly created object
