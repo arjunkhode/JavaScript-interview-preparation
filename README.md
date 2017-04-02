@@ -150,8 +150,10 @@ The scope of this in printWord is Window, so it accesses window.word which is �
 	callerObject.printWord.apply(func);//'this' becomes func
 	
 **If you "copy" a function to a variable and run the variable, `this` inherits the scope from the variable and not the originally referred function's parent object.**
+
+**Remember it like this: "copy" statement always transfers the `this` **
 	
-**Whether the function is copied or not, its lexical scope would always apply to its outer environment context in case that variable being accessed is missing from that function**	
+**Whether copied or not, the lexical scope and the "outer environment" of that function always remains the same**
 	
 	func2 = callerObject.printWord;
 	func2(); //returns “Hello” which is taken from the global scope and not from callerObject
