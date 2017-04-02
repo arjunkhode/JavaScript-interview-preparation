@@ -110,7 +110,7 @@ My preparation for getting a full time job as a front end developer
 
 `this` does not, in any way, refer to a function's lexical scope.
 
-You cannot use a `this` reference to look something up in a lexical scope. It is not possible.
+You cannot use a `this` reference to look something up in a lexical scope. 
 
 When a function is invoked, an activation record, otherwise known as an execution context, is created. This record contains information about where the function was called from (the call-stack), how the function was invoked, what parameters were passed, etc. One of the properties of this record is the `this` reference which will be used for the duration of that function's execution.
 
