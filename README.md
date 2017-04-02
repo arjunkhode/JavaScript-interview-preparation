@@ -214,7 +214,7 @@ In arrow functions, this is set lexically, i.e. it's set to the value of the enc
 	> var tex = 1
 	< undefined
 	> var mex = {tex:2; func:function(){console.log(tex)}};
-Mistake: did not use a comma in the object
+Mistake: did not use a comma in the object, used semi-colon instead
 	
 	< SyntaxError: Unexpected token ';'. Expected '}' to end an object literal.
 	> var mex = {tex:2, func:function(){console.log(tex)}};
