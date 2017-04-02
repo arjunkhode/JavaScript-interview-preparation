@@ -228,7 +228,7 @@ Mistake, tried to access member function directly
 	> mex.func()
 	[Log] 1
 	
-Any function contained in an object, would have its outer environment set to global scope and not the object scope.
+Our function `tex` contained in `mex` object, would have its outer environment set to global scope and not the object scope.
 Any function contained within a function, has its outer environment value depend upon where the inner function lexically sits. If inside the outer function, the outer environment would point to the scope of the outer function.
 If not, it would point to the global environment. 
 
