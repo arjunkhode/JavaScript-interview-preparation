@@ -329,6 +329,7 @@ No! Because everytime we use `=` it is an exception to call by reference. Instea
 	function a(){
 	var myVar = 2;
 	console.log(myVar); 
+	b();
 	}
 	var myVar = 1;
 	console.log(myVar);
