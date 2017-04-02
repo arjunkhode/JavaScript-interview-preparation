@@ -155,8 +155,8 @@ The scope of this in printWord is Window, so it accesses window.word which is �
 	
 * __When not copied, the lexical scope and the "outer environment" of that function always remains the same__
 	
-* __When copied, the lexical scope of the function is also transferred.__	
-	
+* __If you duplicate the function and copy it. Then its lexical scope is not transferred. Because functions are objects are passed by reference. If you assign a function to a variable, its lexical scope is transferred__
+
 	```
 	func2 = callerObject.printWord;
 	func2(); //returns “Hello” which is taken from the global scope and not from callerObject
