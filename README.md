@@ -2,7 +2,13 @@
 My preparation for getting a full time job as a front end developer
 ___________________
 
-* The null gotcha!
+* NaN appears when a non-number cannot be coerced to a number.
+  
+  NaN is type Number
+
+  NaN compared to anything is false
+
+* null is an object
 
   null datatype qualifies as an Object.
   ```
