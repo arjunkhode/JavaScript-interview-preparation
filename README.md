@@ -401,7 +401,7 @@ No! Because everytime we use `=` it is an exception to call by reference. Instea
 - It does not touch the global object.
 - The global object is safe.
 - Unless, we explicitly pass the global object aka Window as a parameter to an IIFE and access that `global.variable` inside the IIFE. That is the only way an IIFE can touch the global context.
-- An IIFE neither uses global variables nor pushes variables to the global object, by default.
+- An IIFE neither uses global variables nor pushes variables to the global object, given that it has all those variables locally, by default. If you explicitly supply a global variable to an IIFE or access it from an IIFE and it is accessible, and you alter that variable, then IIFEs can alter global variables.
 
 ### Precedence and assiciativity
 
