@@ -214,10 +214,14 @@ In arrow functions, this is set lexically, i.e. it's set to the value of the enc
 	> var tex = 1
 	< undefined
 	> var mex = {tex:2; func:function(){console.log(tex)}};
+Mistake: did not use a comma in the object
+	
 	< SyntaxError: Unexpected token ';'. Expected '}' to end an object literal.
 	> var mex = {tex:2, func:function(){console.log(tex)}};
 	< undefined
 	> func
+Mistake, tried to access member function directly
+
 	< ReferenceError: Can't find variable: func
 	> mex.func
 	< function (){console.log(tex)}
@@ -232,7 +236,42 @@ Note that where a function was called does not have an impact on the function's 
 Where it lexically sits has an effect on its outer environment.
 And functions in objects point to global scope because objects do not have execution environments.
 
-## A tricky scenario: call by reference
+### A subtle twist
+
+If we were to make only one change in the `func` function, it would completely change the value logged by `func`
+
+#### Code before
+
+	var tex = 1;
+	var mex = {tex:2, func: function(){console.log(tex);}}
+	mex.func(); //returns 1
+
+#### Code after
+
+	var tex = 1;
+	var mex = {tex:2, func: function(){console.log(this.tex);}} //here's the change
+	mex.func(); //returns 2
+	
+In the code after, I set the console.log to `this.tex` instead of just `tex`.
+Here's the progression:
+
+- Global execution context is set up. A variable environment is set up.
+- Memory is allocated to tex variable and it is set to 1.
+- Memory is allocated to mex and its member variables are populated
+- mex.func() is encountered. 
+- An execution stack for mex.func() is set up. A variable environment for func is set up.
+- func does not contain any variables of its own.
+- console.log is executed, and tex is encountered.
+- **In code before:** tex is not present in func. So the outer lexical environment of func is referenced.
+- the lexical outer environment of func is the global context.
+- The global value of tex is logged in the console.
+
+- **In code after:** 'this.tex' is encountered. 
+- 'this' of func is the containing object mex.
+- The value of tex inside mex is referenced
+- The local value of tex is logged in the console.
+
+## Another tricky scenario: call by reference
 
 	b = function (){console.log(this)}
 	> var thing = b
