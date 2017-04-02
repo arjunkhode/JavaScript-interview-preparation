@@ -194,17 +194,17 @@ function func3(){this.word = “Hi”;} //when func3 is instantiated, it also re
 const obj2 = new func3(); 
 obj2 //returns object with {word: “Hi”}
   ```
-When a function is used as a constructor (with the new keyword), its this is bound to the new object being constructed.
+When a function is used as a constructor (with the new keyword), its `this` is bound to the new object being constructed.
 
-A function used as getter or setter has its this bound to the object from which the property is being set or gotten.
+A function used as getter or setter has its `this` bound to the object from which the property is being set or gotten.
 
-When a function is called as a method of an object, its this is set to the object the method is called on.
+When a function is called as a method of an object, its `this` is set to the object the method is called on.
 
-The this binding is only affected by the most immediate member reference. The most immediate reference is all that matters.
+The `this` binding is only affected by the most immediate member reference. The most immediate reference is all that matters.
 
 6. Arrow functions
 
-In arrow functions, this is set lexically, i.e. it's set to the value of the enclosing execution context's this. In global code, it will be set to the global object:
+In arrow functions, `this` is set lexically, i.e. it's set to the value of the enclosing execution context's this. In global code, it will be set to the global object:
 
 	var globalObject = this;
 	var foo = (() => this);
