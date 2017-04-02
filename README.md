@@ -151,12 +151,14 @@ The scope of this in printWord is Window, so it accesses window.word which is �
 	
 * __If you "copy" a function to a variable and run the variable, `this` inherits the scope from the variable and not the originally referred function's parent object.__
 
-* __Remember it like this: "copy" statement always transfers the 'this' __
+* __Remember it like this: "copy" statement always transfers the 'this'__
 	
 * __Whether copied or not, the lexical scope and the "outer environment" of that function always remains the same__
 	
+	```
 	func2 = callerObject.printWord;
 	func2(); //returns “Hello” which is taken from the global scope and not from callerObject
+	```
 
 If we have two nested objects and a function inside the inner object, `this` of that function returns the inner object. 
 When objects cascade, `this` of the contained function propagates from inside to outside one step at a time.
