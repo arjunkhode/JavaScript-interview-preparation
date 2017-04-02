@@ -168,10 +168,24 @@ When objects cascade, `this` of the contained function propagates from inside to
 if you try to access any variables in b, 
 it would check b and if not found, then check the global execution context.
 Any function created in normal fashion, has its 'this' set to global execution context.
-So 'this' inside b couldn't access anything that was a sibling of b inside obj
-because 'this' inside b has its outer environment set to global context and not the obj, containing b.
+So 'this' inside b couldn't access anything that was a sibling of b inside obj.
 
-4. `new` keyword.
+4. As an object method
+
+When a function is called as a method of an object, its this is set to the object the method is called on.
+
+In the following example, when o.f() is invoked, inside the function this is bound to the o object.
+
+	var o = {
+	  prop: 37,
+	  f: function() {
+	    return this.prop;
+	  }
+	};
+
+	console.log(o.f()); // logs 37
+
+5. `new` keyword.
   ```
 function func3(){this.word = “Hi”;} //when func3 is instantiated, it also returns `this`. It returns the newly created object
 const obj2 = new func3(); 
@@ -184,6 +198,14 @@ A function used as getter or setter has its this bound to the object from which 
 When a function is called as a method of an object, its this is set to the object the method is called on.
 
 The this binding is only affected by the most immediate member reference. The most immediate reference is all that matters.
+
+6. Arrow functions
+
+In arrow functions, this is set lexically, i.e. it's set to the value of the enclosing execution context's this. In global code, it will be set to the global object:
+
+	var globalObject = this;
+	var foo = (() => this);
+	console.log(foo() === globalObject); // true
 
 ## Scoping: functions inside objects and functions inside functions
 
