@@ -153,7 +153,9 @@ The scope of this in printWord is Window, so it accesses window.word which is â€
 
 * __Remember it like this: "copy" statement always transfers the 'this'__
 	
-* __Whether copied or not, the lexical scope and the "outer environment" of that function always remains the same__
+* __When not copied, the lexical scope and the "outer environment" of that function always remains the same__
+	
+* __When copied, the lexical scope of the function is also transferred.__	
 	
 	```
 	func2 = callerObject.printWord;
