@@ -542,3 +542,9 @@ Invoke the original function present in first object and _apply()_ a second obje
 Passing a second parameter (say 2) to bind sets the first argument of the original function to a permanent value of 2
 However, when you call the new function, the first parameter will always be 2.
 Any argument passed to the new function will apply to the second parameter(and not the first because it is preset), and so on.
+
+	function mult(a,b){return a*b}
+	var x2 = mult.bind(this,2); //This sets x2's a to 2 permanently
+	x2(3); returns 6
+	
+Note how mult takes 2 parameters but x2 takes only one. That's because we curried the first parameter of x2 to a 2.
