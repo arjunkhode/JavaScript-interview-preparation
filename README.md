@@ -169,8 +169,7 @@ When objects cascade, `this` of the contained function propagates from inside to
 	obj.func.b();// returns {b: function}
 if you try to access any variables in b, 
 it would check b and if not found, then check the global execution context.
-Any function created in normal fashion, has its 'this' set to global execution context.
-So 'this' inside b couldn't access anything that was a sibling of b inside obj.
+This is because the outer environment i.e the lexical scope of the function is the Global object.
 
 4. As an object method
 
