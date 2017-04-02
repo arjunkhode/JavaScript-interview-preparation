@@ -184,6 +184,8 @@ In the following example, when o.f() is invoked, inside the function this is bou
 	};
 
 	console.log(o.f()); // logs 37
+	
+**Note that `this` set to an object's scope does not mean that the outer environment of the function will be the object. Objects don't have an execution context. So even if `this` of the function is set to the object scope, the outer lexical environment of the function will still be the global object because the containing object does not have an execution stack of its own.**
 
 5. `new` keyword.
   ```
