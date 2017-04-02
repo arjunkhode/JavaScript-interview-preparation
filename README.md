@@ -528,6 +528,13 @@ All 3 have to do with `this` variable
 ### Function borrowing (call, apply)
 Invoke the original function present in first object and _apply()_ a second object to it to display the second person’s name. It tricks the `this` inside the original function into thinking that it belongs to the second object.
 
+	> var Person = {a:"a", b:"b", func: function(){console.log(this.a)}}
+	< undefined
+	> var dog = {a:"Doggo"}
+	< undefined
+	> Person.func.call(dog)
+	[Log] Doggo
+
 ### Function currying (bind)
 - Creating a copy of a function with some preset parameters.
 
