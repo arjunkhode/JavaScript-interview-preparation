@@ -93,10 +93,14 @@ ___________________
   If the statement had const instead of var, neither of the variables would print outside the block's scope
 
 * Use strict
-- Does not allow variables to default to global
-- Does not allow this to default to global
-- Yells at duplicate variable names
-- Silently failing errors are exposed
+ 
+  Does not allow variables to default to global
+ 
+  Does not allow this to default to global
+
+  Yells at duplicate variable names
+
+  Silently failing errors are exposed
 
 * Coercion
 
