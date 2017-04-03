@@ -35,11 +35,13 @@ ___________________
 *  Slice
 
   Array.slice(starting index, index before which to stop);
+	  
 	  ```	
 	  "john".slice(2); //returns "h"
 	  "john".slice(1,3); //returns "oh"
 	  ```
   With a negative starting index, slice offsets the array from the end by that magnitude
+	  
 	  ```
 	  "john".slice(-1); //returns "n"
 	  "john".slice(-2); //returns "hn"
