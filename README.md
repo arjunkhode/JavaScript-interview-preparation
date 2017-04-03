@@ -33,6 +33,13 @@ ___________________
   (toString.call(bar) !== "[object Array]"))
   ```
  
+* Test if a number is an integer:
+	```
+	x.isInteger() //ES6
+	return((x^0)===x)
+	return(Math.round(x)===x)
+	```
+ 
 * Since toString is defined in Object.prototype, whoever inherits Object, will by default get the toString method.
 
   But, Array objects, override the default toString method to print the array elements as comma separated string.
