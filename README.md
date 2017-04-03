@@ -6,6 +6,8 @@ ___________________
   
   NaN is type Number
 
+  Every Number is a float in JavaScript
+
   NaN compared to anything is false
 
 * null is an object
@@ -89,6 +91,12 @@ ___________________
   b would be accessible and defined outside the function, but a would not be defined in the global scope because it has a var prefix in the declaration
   
   If the statement had const instead of var, neither of the variables would print outside the block's scope
+
+* Use strict
+- Does not allow variables to default to global
+- Does not allow this to default to global
+- Yells at duplicate variable names
+- Silently failing errors are exposed
 
 * Coercion
 
