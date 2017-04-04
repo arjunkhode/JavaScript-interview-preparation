@@ -30,7 +30,7 @@ ___________________
   ```
   
   2. Arrays are Objects too, so the expression will return true for arrays. 
-  To return false for arrays, use the toString.class() method:
+  To return false for arrays, use the toString.call() method:
   ```
   (toString.call(bar) !== "[object Array]"))
   ``` 
