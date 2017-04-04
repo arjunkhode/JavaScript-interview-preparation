@@ -600,3 +600,62 @@ Any argument passed to the new function will apply to the second parameter(and n
 	x2(3); returns 6
 	
 Note how mult takes 2 parameters but x2 takes only one. That's because we curried the first parameter of x2 to a 2.
+
+# HTTP Basics
+
+## HTTP
+
+- Used for communication between computers
+- Connectionless:
+	browser initiates request then disconnects
+	server finds a route and sends data
+
+- Media independent: Any type of data is welcome
+
+- Stateless: client server are aware of each other only during current transaction
+	Then they forget about each other.
+	Neither client or server retains info.
+
+## Client
+Sends request to server in the form of a request method + protocol+ MIME like message and maybe some body content over TCP/IP
+
+## Server
+responds with status line, protocol+success/error code+MIME like message
+
+## MIME
+a standard for formatting files of different types, such as text, graphics, or audio, which can be played by a web browser or email application.
+
+`HTTP/1.0` - protocol version
+`HTTP://host:port_no/path` - URI
+
+All date time in GMT
+
+Charset is ASCII
+
+encoding: encoding algo to encode data before passing
+
+Media type example: image/gif
+
+lang: en-US
+
+## HTTP Methods
+- GET - only get data 
+- POST - send data
+- PUT - Replaces info with new
+- DELETE
+- CONNECT - tunnel to server
+- OPTION - get possible actions
+
+## req/resp structure
+
+- status line
+- 0* headers
+- empty line
+- optional message body
+
+## Status code
+- 1xx - Info
+- 2xx - Success
+- 3xx - Redirect
+- 4xx - Client error
+- 5xx - Server Error
