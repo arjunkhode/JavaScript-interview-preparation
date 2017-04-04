@@ -607,12 +607,12 @@ Note how mult takes 2 parameters but x2 takes only one. That's because we currie
 
 - Used for communication between computers
 - Connectionless:
-	browser initiates request then disconnects
-	server finds a route and sends data
+	Browser initiates request then disconnects.
+	Server finds a route and sends data.
 
 - Media independent: Any type of data is welcome
 
-- Stateless: client server are aware of each other only during current transaction
+- Stateless: Client & server are aware of each other only during current transaction. 
 	Then they forget about each other.
 	Neither client or server retains info.
 
