@@ -529,7 +529,7 @@ These retained variables are available to functions that are authorized to acces
 
 - build function pushes the definition of 3 functions into array arr. 
 
-- Note that it does not console.log the value of i. i is just a literal string passed as function definition.
+- Note that it does not console.log the value of i. i is just passed as function definition.
 
 - Then arr is returned, gets saved in f.
 
