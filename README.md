@@ -341,9 +341,22 @@ Here's the progression:
 	> newStuff.thing
 	< "Hello World"
 	
-Suppose we want to test out call by reference feature of objects. We have `b` inside `func` inside `obj`. We assign object `b` to a variable `thing`. We create a new object newStuff and try to assign "Hello world" to thing. Does this modify thing and hence the original `b` object? 
+Suppose we want to test out call by reference feature of objects. We have `b` inside `func` inside `obj`. We assign object `b` to a variable `thing`. We create a new object newStuff and try to assign "Hello world" to thing. Does this modify thing and hence the original `b` object? It should. But in this case, we are referring to an object containing its own local variable thing. Hence it does not explicitly reference the global thing that we had.
 
-No! Because everytime we use `=` it is an exception to call by reference. Instead of modifying the original copy, it creates a new memory space for the value on left hand side and puts the new assigned value in it. So, thing remains as it is. Whereas `newStuff.thing` is an entirely new variable inside the scope of newStuff and contains a value of "Hello World".
+	var buff = [1,2,3]
+	undefined
+	var cuff = buff
+	undefined
+	cuff.pop()
+	3
+	cuff
+	[1, 2]
+	buff
+	[1, 2]
+
+Above, since arrays are objects, they are passed by reference. The buff array is modified above.
+If you did not want to modify it, just copy it with the spread operator. `var cuff = [...buff]`
+This won't let buff change when cuff is changed.
 
 # Execution stack, variable environment & outer variable environment
 
