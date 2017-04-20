@@ -288,6 +288,8 @@ Note that where a function was called does not have an impact on the function's 
 Where it lexically sits has an effect on its outer environment.
 And functions in objects point to global scope because objects do not have execution environments.
 
+BUT, if we had used `this.tex` instead of just `tex` inside the function, it would output 2.
+
 ### A subtle twist
 
 If we were to make only one change in the `func` function, it would completely change the value logged by `func`
