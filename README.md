@@ -55,9 +55,9 @@ ___________________
 	return(Math.round(x)===x)
 	```
  
-* Since toString is defined in Object.prototype, whoever inherits Object, will by default get the toString method.
+* Since 'toString' is defined in Object.prototype, whoever inherits Object, will by default get the 'toString' method.
 
-  But, Array objects, override the default toString method to print the array elements as comma separated string.
+  But, Array objects, override the default 'toString' method to print the array elements as comma separated string.
   [source](http://stackoverflow.com/questions/30010996/difference-between-object-prototype-tostring-callarrayobj-and-arrayobj-tostrin)
   
   toString() can be used with every object and allows you to get its class using the `call` function.
