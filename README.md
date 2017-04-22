@@ -10,21 +10,21 @@ ___________________
 
   NaN compared to anything is false
 
-* null is an object
+* 'null' is an object
 
-  null datatype qualifies as an Object.
+  'null' datatype qualifies as an Object.
   ```
   const bar = null;
   console.log(typeof bar === "object"); //returns true!
   ```
 
-  If you want to reliably check if bar is an object, check for null condition first.
+  If you want to reliably check if 'bar' is an object, check for 'null' condition first.
   ```
   console.log((bar !== null)&&(typeof bar === "object"));
   ```
 
-  1. If 'bar' is a function, the above code will return false.
-  If you want to return true for bar being a function, simply add the following with an `and` condition
+  1. If 'bar' is a function, the above code will return `false`.
+  If you want to return `true` for 'bar' being a function, simply add the following with an `and` condition
   ```
   (typeof bar === "function")
   ```
