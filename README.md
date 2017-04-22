@@ -23,14 +23,14 @@ ___________________
   console.log((bar !== null)&&(typeof bar === "object"));
   ```
 
-  1. If bar is a function, the above code will return false.
-  If you want to return true for bar being a function, simply add the following with an and condition
+  1. If 'bar' is a function, the above code will return false.
+  If you want to return true for bar being a function, simply add the following with an `and` condition
   ```
   (typeof bar === "function")
   ```
   
-  2. Arrays are Objects too, so the expression will return true for arrays. 
-  To return false for arrays, use the toString.call() method:
+  2. Arrays are Objects too, so the expression will return `true` for arrays. 
+  To return `false` for arrays, use the `toString.call()` method:
   ```
   (toString.call(bar) !== "[object Array]"))
   ``` 
@@ -88,9 +88,9 @@ ___________________
   console.log(a);//we get undefined
   ``` 
   
-  b would be accessible and defined outside the function, but a would not be defined in the global scope because it has a var prefix in the declaration
+  b would be accessible and defined outside the function, but a would not be defined in the global scope because it has a 'var' prefix in the declaration
   
-  If the statement had const instead of var, neither of the variables would print outside the block's scope
+  If the statement had 'const' instead of 'var', neither of the variables would print outside the block's scope
 
 * Use strict
  
