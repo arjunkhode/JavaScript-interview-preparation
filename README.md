@@ -153,7 +153,7 @@ ___________________
   `this` of a function inside a function always refers to the global object, even if the outer function is contained by an object.
   
   This function returns `undefined` for 'this.animal' and returns `Window` object for 'this'.
-  Because animal is not present in the global scope and is limited to the object, it gets a value of undefined.
+  Because 'animal' is not present in the global scope and is limited to the object, it gets a value of 'undefined'.
   
   However, if it were not a function inside a function, and instead were a function directly inside the object, then 'this.animal' would be taken from the enclosing object's 'animal'.
 
