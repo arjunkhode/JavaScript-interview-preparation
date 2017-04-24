@@ -178,7 +178,7 @@ When a function is invoked, an activation record, otherwise known as an executio
 	printWord(); //Returns Hello
   
 
-The scope of this in printWord is Window, so it accesses window.word which is “hello”
+The scope of 'this' in printWord is Window, so it accesses window.word which is “hello”
 
 
 2. Using `apply()` we can explicitly set the `this` of func function to the object 
