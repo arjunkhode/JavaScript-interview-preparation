@@ -225,9 +225,9 @@ This is because the outer environment i.e the lexical scope of the function is t
 
 4. As an object method
 
-When a function is called as a method of an object, its this is set to the object the method is called on.
+When a function is called as a method of an object, its `this` is set to the object the method is called on.
 
-In the following example, when o.f() is invoked, inside the function this is bound to the o object.
+In the following example, when o.f() is invoked, inside the function `this` is bound to the o object.
 
 	var o = {
 	  prop: 37,
