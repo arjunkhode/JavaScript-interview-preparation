@@ -673,5 +673,5 @@ lang: en-US
 - 1xx - Info
 - 2xx - Success
 - 3xx - Redirect
-- 4xx - Client error
+- 4xx - Client Error
 - 5xx - Server Error
