@@ -664,10 +664,10 @@ lang: en-US
 
 ## req/resp structure
 
-- status line
+- Status line
 - 0* headers
-- empty line
-- optional message body
+- Empty line
+- Optional message body
 
 ## Status code
 - 1xx - Info
