@@ -644,7 +644,7 @@ a standard for formatting files of different types, such as text, graphics, or a
 `HTTP/1.0` - protocol version
 `HTTP://host:port_no/path` - URI
 
-All date time in GMT
+All date time is in GMT
 
 Charset is ASCII
 
