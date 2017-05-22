@@ -1,6 +1,6 @@
 # JavaScript-interview-preparation
 
-My preparation for getting a full time job as a front end developer
+My preparation for getting a full time job as a front end developer.
 ___________________
 
 * NaN appears when a non-number cannot be coerced to a number.
