@@ -85,7 +85,7 @@ returns undefined
 
 # DOM event handler
 
-- In case of DOM event handler, value of this will be the DOM element. Like if you have an addEventListener that types this. It will be '<element>'.
+- In case of DOM event handler, value of this will be the DOM element. Like if you have an addEventListener that types this. It will be `<element>`.
 
 https://www.youtube.com/watch?v=yuo8YqKDQ-M
 
