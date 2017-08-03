@@ -89,4 +89,11 @@ returns undefined
 
 https://www.youtube.com/watch?v=yuo8YqKDQ-M
 
+# Callback functions
+
+- A function passed as an argument to another function is a callback function.
+
+- Callback functions are not immediately executed. They are just passed as parameters and the parent function decides when to execute the callback.
+
+- Callback functions are closures. 
 
