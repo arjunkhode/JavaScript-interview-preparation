@@ -33,6 +33,7 @@ returns ["happy","new","year"]
  Even when the outer function has finished executing
  and has popped off the stack, the inner function can still access the variable value. It is like a snapshot of that variable.
 
+```
  function a(){
  	var x = 5;
  	function b(){
@@ -40,6 +41,7 @@ returns ["happy","new","year"]
  	}
  	return b;
  }
+```
 
  let c = a(); // function a has ran fully
  c(); // b is stored in c and is executed
@@ -47,7 +49,7 @@ returns ["happy","new","year"]
  //objects are passed by reference. So b's x is still in c's x
 
  - Another example
-
+```
  function p(){
  	var arr = [];
  	for(var i=0; i<3; i++){
@@ -60,7 +62,7 @@ returns ["happy","new","year"]
  q[0]();
  q[1]();
  q[2](); // All return 3, the last value of i
-
+```
 # This of an object
 
 function inside object has its this set to object
