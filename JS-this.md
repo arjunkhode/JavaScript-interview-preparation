@@ -97,3 +97,70 @@ https://www.youtube.com/watch?v=yuo8YqKDQ-M
 
 - Callback functions are closures. 
 
+# Arrays
+
+- Array.concat() is 40% faster than Array.push
+
+- Array.unshift() adds elements to the starting of the array
+
+- Array.push() modifies the original array. Array.concat() returns a new array.
+
+- * Array.concat() copies object references instead of values
+
+- To concatenate arrays, Array.push() is sometimes faster than spread. 
+
+```
+let arr1 = [1,2];
+let arr2 = [x,y];
+arr1.push.apply(arr1,arr2);
+// Note: arr1.push(arr2) would push an array inside array
+```
+
+- Removing duplicates from an array using filter
+
+- Filter callback returns a boolean, and based on that adds elem to the resulting array.
+
+```
+arr.filter((elem,i,arr)=>{
+	return arr.indexOf(elem)===i;
+});
+```
+
+- Reduce uses prevVal and elem. It also requires an initial value to initialize prevVal with.
+
+arr.reduce((prevVal, elem)=>{return prevVal+elem;},0);
+
+- Arrays are passed by reference
+
+- *To pass an array by value, use Array.slice()
+- In short, it doesn't work for objects, but works for strings and numbers.
+
+- For object references(variables) slice copies the objects into a new array. But modifying the original object modifies the values of the slice array
+- For numbers and strings, slice passes them by value. So modifying the original array does not change the slice array.
+
+- In Splice, NaN is treated as 0 so arr.splice(NaN,4) will delete 4 elements from arr[0]
+
+- To sort numerical values, use the following
+```
+var points = [40, 100, 1, 5, 25, 10];
+points.sort(function(a, b){return a-b})
+```
+
+- undefined is not false
+- null is not false
+- undefined is null
+- null is not 0
+- undefined is not 0
+- escape sequences are equal to empty string
+
+# Currying
+
+```
+function greetcurry(greeting){
+	return function(name){console.log(greeting,name);}
+}
+
+>const hellogreeting = greetcurry("Hello");
+>hellogreeting("Arjun");
+>Hello Arjun
+```
