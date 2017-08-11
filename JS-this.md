@@ -163,4 +163,144 @@ function greetcurry(greeting){
 >const hellogreeting = greetcurry("Hello");
 >hellogreeting("Arjun");
 >Hello Arjun
+
+// first paren returns a function that greets hi
+// call that function with parameter Arjun
+>greetcurry("Hi")("Arjun");
+```
+
+# DOM
+
+- no element returns null
+- document.body.children gives all child elements
+
+```
+HTMLCollection (10) = $2
+0 
+<div class="position-relative js-header-wrapper ">…</div>
+1 
+<div id="start-of-content" class="show-on-focus"></div>
+2 
+<div id="js-flash-container"> </div>
+...
+```
+- document.body.childNodes gives all childNodes
+
+```
+NodeList (21) = $1
+0 #text " "
+1 
+<div class="position-relative js-header-wrapper ">…</div>
+2 #text " "
+3 
+<div id="start-of-content" class="show-on-focus"></div>
+4 #text " "
+5 
+<div id="js-flash-container"> </div>
+...
+```
+
+- firstElementChild
+- lastElementChild
+- previousElementSibling
+- nextElementSibling
+- tagName is an uppercase name of element
+- `document.body.innerHTML+="<div>Wasaniga</div>"` this works. But innerHTML can't be appended. It acts like it is immutable.
+
+
+### Attributes
+
+- elem.hasAttribute(name)
+- elem.getAttribute(name) gets the value of that attribute
+- elem.setAttribute(name, value)
+- elem.removeAttribute(name)
+- Attributes are not case sensitive
+- input.checked // true or false
+- input.getAttribute('checked') // returns string of content (not boolean)
+
+### DOM Modification
+
+- document.body.appendChild(textElem); // Always need parent element to call this function
+- elem.insertBefore(newElem, targetBeforeWhichToInsert);
+- removeChild(elem);
+- custom insertAfter function
+```
+let elem = document.createElement('div');
+elem.innerHTML = "Hi! I'm the new element!";
+function insertAfter(elem, target){
+	return elem.parentNode.insertBefore(elem, target.nextSibling);
+}
+// usage
+insertAfter(elem, document.body.firstChild);
+```
+
+## Bubbling and capturing
+
+- event.stopPropagation();
+- If there are two onclick handlers on the same link, then stopping bubbling in one of them has no effect on the other one.
+- Using addEventListener with last argument true is only the way to catch the event at capturing.
+- `elem.addEventListener( type, handler, phase );`
+
+### The default browser action
+
+// 1) Event special method event.preventDefault() for W3C-compliant browsers and event.returnValue = false for IE<9.
+// Or, in a single line:
+event.preventDefault ? event.preventDefault() : (event.returnValue = false);
+
+// 2) Return false from the handler
+
+```
+element.onclick = function (event) {
+  return false;
+};
+```
+
+- event.preventDefault()
+
+- You have to bind the `this` inside a click or other event because by default, the `this` will point to the element that activated the event. So if you want to use any data/function from a structure outside the scope (other than DOM), you bind that object inside the click callback.
+
+- Numbers in JS are represented as a whole number times a power of 2. This makes values with denominator 10 inaccurate.
+
+- Avoid using for...in loop to iterate over arrays. It traverses the structure in arbitrary order.
+
+- *Object.hasOwnProperty(prop) returns a boolean check whether object has that property
+
+- By definition, null has no prototype, and acts as the final link in this prototype chain.
+
+#### Constructors vs Object literals
+
+- Constructors also allow another level of flexibility since functions provide closures, while object literals do not.
+
+- Constructors are meant for many instances. Objects are one off.
+
+- Constructors make a new context and set `this` to the context. Object literals have the outer scope assigned to `this` but don't have an outer execution context, just lexical scope.
+
+```
+// Constructor 
+
+> class Dog{constructor(){console.log(this)}}
+> let d1 = new Dog
+[Log] Dog {}
+
+// object
+
+> let cat = {print: function(){console.log(this)}}
+> cat.print()
+[Log] {print: function}
+< undefined
+```
+
+### Logical operations on strings
+
+for &&, the last valid value is returned
+for ||, the first valid value is returned
+
+```
+  var a = true;
+  var b = 'Yes';
+  var c = 'It\'s me';
+
+  console.log(a && b);  // Prints 'Yes'
+  console.log(a && b && c); // Prints 'It's me'
+  console.log(a && b || c); // Prints 'Yes'
 ```
